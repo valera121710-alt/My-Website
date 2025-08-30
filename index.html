@@ -3,12 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт</title>
+    <title>Портфолио | Мой улучшенный сайт</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Привет, мир!</h1>
-    <p>Это мой первый сайт.</p>
+    <!-- Кнопка темной темы -->
+    <div class="theme-switch-wrapper">
+        <span class="theme-toggle-text">Светлая тема</span>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <span class="theme-toggle-text">Тёмная тема</span>
+    </div>
+
+    <!-- Кнопка назад вверх -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">МоеПортфолио</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Главная</a></li>
+                <li><a href="#about" class="nav-link">Обо мне</a></li>
+                <li><a href="#skills" class="nav-link">Навыки</a></li>
+                <li><a href="#projects" class="nav-link">Проекты</a></li>
+                <li><a href="#blog" class="nav-link">Блог</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content" data-aos="fade-right">
+                <h1>Привет, я <span class="highlight">Валерa</span></h1>
+                <p>Фронтенд-разработчик и создатель цифровых решений</p>
+                <div class="hero-buttons">
+                    <button class="cta-button" id="projectsBtn">Мои проекты</button>
+                    <button class="cta-button secondary" id="contactBtn">Связаться</button>
+                </div>
+                <div class="social-links hero-social">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="image-placeholder">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 data-aos="fade-up">Обо мне</h2>
+            <div class="about-content" data-aos="fade-up">
+                <div class="about-text">
+                    <p>Привет! Я начинающий веб-разработчик, который любит создавать интересные и полезные проекты. Моя цель - стать профессионалом в области фронтенд-разработки и создавать продукты, которые улучшают жизнь людей.</p>
+                    <p>В свободное время я изучаю новые технологии, участвую в хакатонах и работаю над личными проектами.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">Завершенных проектов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="6">0</span>
+                        <span class="stat-label">Изученных технологий</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Месяцев опыта</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h2 data-aos="fade-up">Мои навыки</h2>
+            <div class="skills-container">
+                <div class="skill-category" data-aos="fade-right">
+                    <h3>Фронтенд</h3>
+                    <div class="skill-item">
+                        <span>HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>React</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category" data-aos="fade-left">
+                    <h3>Другие навыки</h3>
+                    <div class="skill-item">
+                        <span>Git</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Figma</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2 data-aos="fade-up">Мои проекты</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="flip-left">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/3498db/white" alt="Проект 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Интернет-магазин</h3>
+                        <p>Полнофункциональный интернет-магазин с корзиной и системой оплаты</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Код</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/e74c3c/white" alt="Проект 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Блог-платформа</h3>
+                        <p>Платформа для ведения блога с системой комментариев</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Код</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/2ecc71/white" alt="Проект 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>Приложение для задач</h3>
+                        <p>Приложение для управления задачами с возможностью синхронизации</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>SCSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Код</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Демо</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog">
+            <h2 data-aos="fade-up">Последние записи в блоге</h2>
+            <div class="blog-posts">
+                <article class="blog-post" data-aos="fade-up">
+                    <div class="post-date">12 апреля 2023</div>
+                    <h3>Как я начал изучать веб-разработку</h3>
+                    <p>Мой путь в веб-разработке начался с curiosity и желания создавать... </p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </article>
+                
+                <article class="blog-post" data-aos="fade-up" data-aos-delay="100">
+                    <div class="post-date">5 мая 2023</div>
+                    <h3>Советы по изучению JavaScript</h3>
+                    <p>Изучение JavaScript может быть сложным, но с правильным подходом... </p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </article>
+                
+                <article class="blog-post" data-aos="fade-up" data-aos-delay="200">
+                    <div class="post-date">20 мая 2023</div>
+                    <h3>Создание своего первого React-приложения</h3>
+                    <p>React — это мощная библиотека для создания пользовательских интерфейсов... </p>
+                    <a href="#" class="read-more">Читать далее →</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2 data-aos="fade-up">Связаться со мной</h2>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Давайте работать вместе!</h3>
+                    <p>Я открыт для новых проектов и возможностей. Свяжитесь со мной, и давайте обсудим вашу идею.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>example@email.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+7 (999) 123-45-67</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Москва, Россия</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" data-aos="fade-left">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Ваш email" required>
+                    <input type="text" placeholder="Тема" required>
+                    <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
+                    <button type="submit" class="cta-button">Отправить сообщение</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>МоеПортфолио</h3>
+                <p>Создаю цифровые решения, которые вдохновляют</p>
+            </div>
+            <div class="footer-section">
+                <h4>Быстрые ссылки</h4>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#projects">Проекты</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Социальные сети</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 МоеПортфолио. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+    </html>
+
