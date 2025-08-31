@@ -1,3 +1,41 @@
+// Функция для инициализации темы
+function initTheme() {
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (toggleSwitch) toggleSwitch.checked = true;
+    }
+    
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    }
+    
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        }    
+    }
+}
+
+// Инициализация темы при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    initTheme();
+    
+    // Остальной код инициализации...
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+    
+    // Другие функции инициализации...
+});
 // Основная функция инициализации
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация всех компонентов
