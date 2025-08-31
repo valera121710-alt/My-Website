@@ -13,34 +13,72 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        :root {
+            --color-1: #1a2a6c;
+            --color-2: #b21f1f;
+            --color-3: #fdbb2d;
+            --gradient-angle: 135deg;
+        }
+
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background: linear-gradient(var(--gradient-angle), var(--color-1), var(--color-2), var(--color-3));
             color: #333;
             min-height: 100vh;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: background 1s ease;
+            transition: all 1.5s ease;
         }
 
-        /* Радужный режим */
+        /* Радужный режим - более плавный */
         body.rainbow-mode {
-            animation: rainbowBackground 10s infinite linear;
+            animation: smoothRainbow 30s infinite linear;
         }
 
-        @keyframes rainbowBackground {
-            0% { background: linear-gradient(135deg, #ff0000, #ff8000); }
-            10% { background: linear-gradient(135deg, #ff8000, #ffff00); }
-            20% { background: linear-gradient(135deg, #ffff00, #80ff00); }
-            30% { background: linear-gradient(135deg, #80ff00, #00ff00); }
-            40% { background: linear-gradient(135deg, #00ff00, #00ff80); }
-            50% { background: linear-gradient(135deg, #00ff80, #00ffff); }
-            60% { background: linear-gradient(135deg, #00ffff, #0080ff); }
-            70% { background: linear-gradient(135deg, #0080ff, #0000ff); }
-            80% { background: linear-gradient(135deg, #0000ff, #8000ff); }
-            90% { background: linear-gradient(135deg, #8000ff, #ff00ff); }
-            100% { background: linear-gradient(135deg, #ff00ff, #ff0000); }
+        @keyframes smoothRainbow {
+            0% {
+                --color-1: #ff0000;
+                --color-2: #ff8000;
+                --color-3: #ffff00;
+                --gradient-angle: 135deg;
+            }
+            16.6% {
+                --color-1: #ffff00;
+                --color-2: #80ff00;
+                --color-3: #00ff00;
+                --gradient-angle: 180deg;
+            }
+            33.3% {
+                --color-1: #00ff00;
+                --color-2: #00ff80;
+                --color-3: #00ffff;
+                --gradient-angle: 225deg;
+            }
+            50% {
+                --color-1: #00ffff;
+                --color-2: #0080ff;
+                --color-3: #0000ff;
+                --gradient-angle: 270deg;
+            }
+            66.6% {
+                --color-1: #0000ff;
+                --color-2: #8000ff;
+                --color-3: #ff00ff;
+                --gradient-angle: 315deg;
+            }
+            83.3% {
+                --color-1: #ff00ff;
+                --color-2: #ff0080;
+                --color-3: #ff0000;
+                --gradient-angle: 360deg;
+            }
+            100% {
+                --color-1: #ff0000;
+                --color-2: #ff8000;
+                --color-3: #ffff00;
+                --gradient-angle: 405deg;
+            }
         }
 
         .container {
@@ -565,4 +603,4 @@
         });
     </script>
 </body>
-        </html>
+    </html>
