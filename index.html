@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Улучшенный Кроссплатформенный Сайт</title>
+    <title>Кроссплатформенный Веб-Сайт с Музыкой</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,72 +13,34 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --color-1: #1a2a6c;
-            --color-2: #b21f1f;
-            --color-3: #fdbb2d;
-            --gradient-angle: 135deg;
-        }
-
         body {
-            background: linear-gradient(var(--gradient-angle), var(--color-1), var(--color-2), var(--color-3));
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             color: #333;
             min-height: 100vh;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: all 1.5s ease;
+            transition: background 1s ease;
         }
 
-        /* Радужный режим - более плавный */
+        /* Радужный режим */
         body.rainbow-mode {
-            animation: smoothRainbow 30s infinite linear;
+            animation: rainbowBackground 10s infinite linear;
         }
 
-        @keyframes smoothRainbow {
-            0% {
-                --color-1: #ff0000;
-                --color-2: #ff8000;
-                --color-3: #ffff00;
-                --gradient-angle: 135deg;
-            }
-            16.6% {
-                --color-1: #ffff00;
-                --color-2: #80ff00;
-                --color-3: #00ff00;
-                --gradient-angle: 180deg;
-            }
-            33.3% {
-                --color-1: #00ff00;
-                --color-2: #00ff80;
-                --color-3: #00ffff;
-                --gradient-angle: 225deg;
-            }
-            50% {
-                --color-1: #00ffff;
-                --color-2: #0080ff;
-                --color-3: #0000ff;
-                --gradient-angle: 270deg;
-            }
-            66.6% {
-                --color-1: #0000ff;
-                --color-2: #8000ff;
-                --color-3: #ff00ff;
-                --gradient-angle: 315deg;
-            }
-            83.3% {
-                --color-1: #ff00ff;
-                --color-2: #ff0080;
-                --color-3: #ff0000;
-                --gradient-angle: 360deg;
-            }
-            100% {
-                --color-1: #ff0000;
-                --color-2: #ff8000;
-                --color-3: #ffff00;
-                --gradient-angle: 405deg;
-            }
+        @keyframes rainbowBackground {
+            0% { background: linear-gradient(135deg, #ff0000, #ff8000); }
+            10% { background: linear-gradient(135deg, #ff8000, #ffff00); }
+            20% { background: linear-gradient(135deg, #ffff00, #80ff00); }
+            30% { background: linear-gradient(135deg, #80ff00, #00ff00); }
+            40% { background: linear-gradient(135deg, #00ff00, #00ff80); }
+            50% { background: linear-gradient(135deg, #00ff80, #00ffff); }
+            60% { background: linear-gradient(135deg, #00ffff, #0080ff); }
+            70% { background: linear-gradient(135deg, #0080ff, #0000ff); }
+            80% { background: linear-gradient(135deg, #0000ff, #8000ff); }
+            90% { background: linear-gradient(135deg, #8000ff, #ff00ff); }
+            100% { background: linear-gradient(135deg, #ff00ff, #ff0000); }
         }
 
         .container {
@@ -90,6 +52,81 @@
             overflow: hidden;
             margin: 20px 0;
             position: relative;
+        }
+
+        /* Музыкальный плеер */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .music-player:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .music-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .music-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .music-info {
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+        }
+
+        .music-title {
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .music-artist {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .volume-slider {
+            width: 80px;
+            margin-left: 5px;
         }
 
         /* Меню настроек */
@@ -366,10 +403,44 @@
             nav a {
                 margin-bottom: 10px;
             }
+            
+            .music-player {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                border-radius: 15px;
+            }
+            
+            .volume-control {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Музыкальный плеер -->
+    <div class="music-player">
+        <div class="music-controls">
+            <button class="music-btn" id="prevBtn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="music-btn" id="playPauseBtn">
+                <i class="fas fa-play" id="playPauseIcon"></i>
+            </button>
+            <button class="music-btn" id="nextBtn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        <div class="music-info">
+            <div class="music-title" id="musicTitle">Calm Relaxing Music</div>
+            <div class="music-artist" id="musicArtist">Peaceful Mind</div>
+        </div>
+        <div class="volume-control">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
+
     <div class="container">
         <!-- Меню настроек -->
         <div class="settings-menu">
@@ -397,6 +468,13 @@
                     <span>Анимации</span>
                     <label class="switch">
                         <input type="checkbox" id="animations" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="menu-item">
+                    <span>Фоновая музыка</span>
+                    <label class="switch">
+                        <input type="checkbox" id="musicToggle" checked>
                         <span class="slider"></span>
                     </label>
                 </div>
@@ -529,78 +607,8 @@
         </footer>
     </div>
 
-    <script>
-        // Простая проверка ОС пользователя
-        function getOS() {
-            const userAgent = navigator.userAgent;
-            if (userAgent.includes('Win')) return 'Windows';
-            if (userAgent.includes('Mac')) return 'macOS';
-            if (userAgent.includes('Linux')) return 'Linux';
-            return 'Unknown OS';
-        }
-
-        // Меню настроек
-        const menuToggle = document.getElementById('menuToggle');
-        const menuContent = document.getElementById('menuContent');
-        
-        menuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            menuContent.classList.toggle('active');
-        });
-
-        // Закрытие меню при клике вне его
-        document.addEventListener('click', function(event) {
-            if (!menuToggle.contains(event.target) && !menuContent.contains(event.target)) {
-                menuContent.classList.remove('active');
-            }
-        });
-
-        // Радужный режим
-        const rainbowMode = document.getElementById('rainbowMode');
-        
-        // Загрузка сохраненных настроек
-        if (localStorage.getItem('rainbowMode') === 'true') {
-            rainbowMode.checked = true;
-            document.body.classList.add('rainbow-mode');
-        }
-        
-        rainbowMode.addEventListener('change', function() {
-            if (this.checked) {
-                document.body.classList.add('rainbow-mode');
-                localStorage.setItem('rainbowMode', 'true');
-            } else {
-                document.body.classList.remove('rainbow-mode');
-                localStorage.setItem('rainbowMode', 'false');
-            }
-        });
-
-        // Покажем приветственное сообщение с определением ОС
-        document.addEventListener('DOMContentLoaded', function() {
-            const os = getOS();
-            const welcomeMsg = `Добро пожаловать! Обнаружена система: ${os}`;
-            
-            // Создаем элемент для отображения сообщения
-            const osInfo = document.createElement('div');
-            osInfo.style.position = 'fixed';
-            osInfo.style.bottom = '20px';
-            osInfo.style.right = '20px';
-            osInfo.style.background = 'rgba(0, 0, 0, 0.8)';
-            osInfo.style.color = 'white';
-            osInfo.style.padding = '10px 15px';
-            osInfo.style.borderRadius = '5px';
-            osInfo.style.zIndex = '1000';
-            osInfo.style.fontSize = '14px';
-            osInfo.textContent = welcomeMsg;
-            
-            document.body.appendChild(osInfo);
-            
-            // Убираем сообщение через 5 секунд
-            setTimeout(() => {
-                osInfo.style.opacity = '0';
-                osInfo.style.transition = 'opacity 0.5s ease';
-                setTimeout(() => document.body.removeChild(osInfo), 500);
-            }, 5000);
-        });
-    </script>
-</body>
-    </html>
+    <!-- Аудио элемент -->
+    <audio id="backgroundMusic" loop>
+        <!-- Замените ссылку на свою музыку -->
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/20/audio_d1718ab41b.mp3?filename=relaxing-music-meditation-121399.mp3" type="audio/mpeg">
+        Ваш браузер не поддерж
